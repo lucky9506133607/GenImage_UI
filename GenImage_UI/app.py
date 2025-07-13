@@ -1,3 +1,4 @@
+print("app.py is running!")
 from flask import Flask, render_template, request, jsonify
 import os
 
@@ -10,6 +11,7 @@ def home():
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.json
+    print("Received data:", data)
     # You can process data here
     return jsonify({'status': 'success'})
 

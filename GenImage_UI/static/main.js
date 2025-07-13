@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', function() {
             }, 3000);
 
             // Optionally, send data to backend
-            /*
+
             const data = getRowData(row);
             fetch('/submit', {
                 method: 'POST',
@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', function() {
             .then(resp => {
                 // handle response
             });
-            */
+
         });
     });
 
