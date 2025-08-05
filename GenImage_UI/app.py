@@ -5,10 +5,18 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 
 @app.route('/', methods=['GET'])
 def home():
+    print("Home Page")
+    import sys
+    sys.stdout.flush()  # Force flush the output
+    # Alternative logging
+    import logging
+    logging.basicConfig(level=logging.INFO)
+    logging.info("Home page accessed!")
     return render_template('index.html')
 
 @app.route('/run-linkcheck', methods=['POST'])
 def run_linkcheck_route():
+    print("Run link check function")
     payload = request.json or {}
     url = payload.get("url", "").strip()
     if not url:
@@ -20,6 +28,7 @@ def run_linkcheck_route():
     return jsonify(result)
 
 if __name__ == '__main__':
+    print("Flask app is starting...")
     app.run(debug=True)
 
 

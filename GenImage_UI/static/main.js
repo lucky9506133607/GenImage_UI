@@ -59,6 +59,24 @@ window.addEventListener('DOMContentLoaded', function() {
             .then(resp => {
                 // handle response
             });
+            
+            // Also call the run-linkcheck endpoint to trigger the print statement
+            // Use the input field value as the URL to test
+            const inputValue = input.value.trim();
+            if (inputValue && (inputValue.startsWith('http://') || inputValue.startsWith('https://'))) {
+                fetch('/run-linkcheck', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: inputValue })
+                })
+                .then(res => res.json())
+                .then(resp => {
+                    console.log('Link check response:', resp);
+                })
+                .catch(error => {
+                    console.log('Link check error:', error);
+                });
+            }
 
         });
     });

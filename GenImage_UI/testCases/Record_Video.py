@@ -4,6 +4,9 @@ import time
 import mss
 
 
+class test:
+    def test(self):
+        print("Call this function first")
 
 class Desktop_Recording:
     def Record(self, driver, output_file="../Assets/E2M.mp4"):
