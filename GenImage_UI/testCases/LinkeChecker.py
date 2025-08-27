@@ -88,13 +88,14 @@ def run_link_check(target_url: str, timeout: int = 180) -> dict:
     except Exception as e:
         print(f"Error capturing screenshot: {e}")
         # Try alternative screenshot method
-        try:
-            screenshot_file = "../Reports/assets/LinkChecker_Overview_fallback.png"
-            driver.save_screenshot(screenshot_file)
-            print(f"Fallback screenshot saved to: {screenshot_file}")
-        except Exception as fallback_error:
-            print(f"Fallback screenshot also failed: {fallback_error}")
-    
+    try:
+        print("Save screenshot working")
+        screenshot_file = "Reports/assets/LinkChecker_Overview_fallback.png" #Path For Mac Devices
+        driver.save_screenshot(screenshot_file)
+        print(f"Fallback screenshot saved to: {screenshot_file}")
+    except Exception as fallback_error:
+        print(f"Fallback screenshot also failed: {fallback_error}")
+
     driver.quit()
 
 

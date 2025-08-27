@@ -21,7 +21,7 @@ cloudinary.config(
 
 class Screenshot:
     def capture_screenshot(self, driver, site_ss):
-        screenshot_file = "../Reports/assets/"+site_ss+".png" #This code is based on mac
+        screenshot_file = "..Reports/assets/"+site_ss+".png" #This code is based on mac
         width = 1920
         height = driver.execute_script("return Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);")
         driver.set_window_size(width, height)
